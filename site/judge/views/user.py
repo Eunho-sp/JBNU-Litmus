@@ -650,7 +650,7 @@ class IdFindView(FormView):
         try:
             user = Profile.objects.get(user__email=email)
         except Profile.DoesNotExist:
-            form.add_error('email_local', _('해당 정보로 등록된 사용자가 없습니다.'))
+            form.add_error('email', _('해당 정보로 등록된 사용자가 없습니다.'))
             return self.form_invalid(form)
         
         send_mail(
